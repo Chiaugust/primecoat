@@ -12439,6 +12439,20 @@ const MN = [
         }]
     ],
     DN = ut("chevron-up", MN);
+const pcLeftIcon = [
+        ["path", {
+            d: "m15 18-6-6 6-6",
+            key: "1wnfg3"
+        }]
+    ],
+    PcChevronLeft = ut("chevron-left", pcLeftIcon);
+const pcRightIcon = [
+        ["path", {
+            d: "m9 18 6-6-6-6",
+            key: "mthhwq"
+        }]
+    ],
+    PcChevronRight = ut("chevron-right", pcRightIcon);
 const kN = [
         ["circle", {
             cx: "12",
@@ -23440,7 +23454,7 @@ function YV() {
                         },
                         className: "relative rounded-3xl overflow-hidden shadow-2xl",
                         children: [g.jsx("img", {
-                            src: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
+                            src: "images/our_team.png",
                             alt: "PrimeCoat Team",
                             className: "w-full h-full object-cover"
                         }), g.jsx("div", {
@@ -23590,35 +23604,35 @@ const ZV = [{
     id: "interior",
     title: "Interior Painting",
     icon: Z1,
-    image: "https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?w=800&q=80",
+    image: "images/interior_painting.png",
     description: "Transform the atmosphere of your home with our professional interior painting services. We handle everything from color consultation to meticulous preparation and flawless application.",
     benefits: ["Complete furniture & floor protection", "Drywall repair and prep", "Premium low-VOC paints", "Clean lines and sharp edges"]
 }, {
     id: "exterior",
     title: "Exterior Painting",
     icon: qc,
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    image: "images/exterior_painting.png",
     description: "Protect your property from the harsh Lagos weather while boosting its curb appeal. Our exterior painting solutions are designed for durability and lasting beauty.",
     benefits: ["Thorough power washing", "Weather-resistant coatings", "Siding and stucco repair", "Protection against mold & fading"]
 }, {
     id: "residential",
     title: "Residential Painting",
     icon: $1,
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80",
+    image: "images/residential_painting.png",
     description: "Whether it's a single room or an entire estate, we provide specialized residential painting tailored to homeowners who demand the best for their living spaces.",
     benefits: ["Minimal disruption to daily life", "Dust-free sanding", "Color consultation available", "Respectful, background-checked crews"]
 }, {
     id: "commercial",
     title: "Commercial Painting",
     icon: qc,
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    image: "images/commercial_painting.png",
     description: "Elevate your business image with our commercial painting services. We work efficiently to minimize downtime while delivering a professional look for your workspace.",
     benefits: ["Flexible after-hours scheduling", "High-durability commercial paints", "Strict safety compliance", "Project management coordination"]
 }, {
     id: "surface-prep",
     title: "Surface Preparation & Repairs",
     icon: Y1,
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356f12?w=800&q=80",
+    image: "images/surface_prep.png",
     description: "A great paint job starts with a perfect canvas. We offer comprehensive surface preparation to ensure maximum paint adhesion and a perfectly smooth finish.",
     benefits: ["Plaster and drywall patching", "Sanding and smoothing", "Caulking and sealing", "Stain-blocking primer application"]
 }, {
@@ -23769,14 +23783,30 @@ const XV = [{
 }];
 
 function QV() {
-    const [e, t] = w.useState(null), [i, r] = w.useState(""), o = u => {
-        t(u), r(u.img), document.body.style.overflow = "hidden"
-    }, c = () => {
-        t(null), document.body.style.overflow = ""
+    const [e, t] = w.useState(null), [i, r] = w.useState(0), thumbListRef = w.useRef(null), projectImages = e ? [e.img, ...e.gallery] : [], activeImage = projectImages[i] || "", openProject = u => {
+        t(u), r(0), document.body.style.overflow = "hidden"
+    }, closeProject = () => {
+        t(null), r(0), document.body.style.overflow = ""
+    }, showPrev = () => {
+        r(u => projectImages.length ? (u - 1 + projectImages.length) % projectImages.length : 0)
+    }, showNext = () => {
+        r(u => projectImages.length ? (u + 1) % projectImages.length : 0)
     };
     return w.useEffect(() => () => {
         document.body.style.overflow = ""
-    }, []), g.jsxs("div", {
+    }, []), w.useEffect(() => {
+        if (!e) return;
+        const u = d => {
+            d.key === "Escape" ? closeProject() : d.key === "ArrowLeft" ? showPrev() : d.key === "ArrowRight" && showNext()
+        };
+        return window.addEventListener("keydown", u), () => window.removeEventListener("keydown", u)
+    }, [e, i, projectImages.length]), w.useEffect(() => {
+        thumbListRef.current?.querySelector(`[data-index="${i}"]`)?.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        })
+    }, [i, e]), g.jsxs("div", {
         className: "min-h-screen bg-background pt-24",
         children: [g.jsx("section", {
             className: "bg-muted py-20 border-b border-border/50",
@@ -23809,7 +23839,7 @@ function QV() {
                             delay: d * .05
                         },
                         className: "group cursor-pointer relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 aspect-square",
-                        onClick: () => o(u),
+                        onClick: () => openProject(u),
                         children: [g.jsx("img", {
                             src: u.img,
                             alt: u.title,
@@ -23840,43 +23870,61 @@ function QV() {
                 exit: {
                     opacity: 0
                 },
-                className: "fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-8",
+                className: "portfolio-modal-overlay fixed inset-0 z-[100] flex items-center justify-center",
                 children: [g.jsx("button", {
-                    onClick: c,
-                    className: "absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors z-10",
+                    onClick: closeProject,
+                    className: "portfolio-modal-close fixed top-4 right-4 text-white bg-primary/80 hover:bg-primary p-3 rounded-full shadow-lg transition-colors",
+                    "aria-label": "Close project gallery",
                     children: g.jsx(Jm, {
-                        className: "w-8 h-8"
+                        className: "w-6 h-6"
                     })
                 }), g.jsxs("div", {
-                    className: "max-w-6xl w-full h-full flex flex-col md:flex-row bg-card rounded-2xl overflow-hidden shadow-2xl",
+                    className: "portfolio-modal-shell max-w-6xl w-full flex flex-col bg-card rounded-2xl overflow-hidden shadow-2xl",
                     children: [g.jsxs("div", {
-                        className: "w-full md:w-2/3 bg-black flex flex-col items-center justify-center p-4 relative",
+                        className: "portfolio-modal-media w-full bg-black flex flex-col items-center justify-center p-4 relative",
                         children: [g.jsx("img", {
-                            src: i,
+                            src: activeImage,
                             alt: e.title,
-                            className: "max-w-full max-h-[60vh] md:max-h-[80vh] object-contain rounded-lg"
+                            className: "portfolio-modal-image w-full object-contain rounded-lg"
+                        }), g.jsxs("span", {
+                            className: "portfolio-modal-counter",
+                            children: [i + 1, " / ", projectImages.length]
                         }), g.jsxs("div", {
-                            className: "flex gap-3 mt-6 overflow-x-auto pb-2 w-full justify-center",
+                            className: "portfolio-thumb-shell relative w-full",
                             children: [g.jsx("button", {
-                                onClick: () => r(e.img),
-                                className: `h-16 w-24 rounded-md overflow-hidden border-2 transition-colors shrink-0 ${i===e.img?"border-secondary":"border-transparent opacity-60 hover:opacity-100"}`,
-                                children: g.jsx("img", {
-                                    src: e.img,
-                                    className: "w-full h-full object-cover",
-                                    alt: "thumbnail"
+                                type: "button",
+                                onClick: showPrev,
+                                className: "portfolio-thumb-nav portfolio-thumb-nav-left",
+                                "aria-label": "Previous image",
+                                children: g.jsx(PcChevronLeft, {
+                                    className: "w-5 h-5"
                                 })
-                            }), e.gallery.map((u, d) => g.jsx("button", {
-                                onClick: () => r(u),
-                                className: `h-16 w-24 rounded-md overflow-hidden border-2 transition-colors shrink-0 ${i===u?"border-secondary":"border-transparent opacity-60 hover:opacity-100"}`,
-                                children: g.jsx("img", {
-                                    src: u,
-                                    className: "w-full h-full object-cover",
-                                    alt: `thumbnail ${d}`
+                            }), g.jsx("div", {
+                                ref: thumbListRef,
+                                className: "portfolio-thumb-row no-scrollbar",
+                                children: projectImages.map((u, d) => g.jsx("button", {
+                                    type: "button",
+                                    "data-index": d,
+                                    onClick: () => r(d),
+                                    className: `portfolio-thumb ${i===d?"is-active":"opacity-60 hover:opacity-100"}`,
+                                    children: g.jsx("img", {
+                                        src: u,
+                                        className: "w-full h-full object-cover",
+                                        alt: d === 0 ? "thumbnail" : `thumbnail ${d}`
+                                    })
+                                }, u))
+                            }), g.jsx("button", {
+                                type: "button",
+                                onClick: showNext,
+                                className: "portfolio-thumb-nav portfolio-thumb-nav-right",
+                                "aria-label": "Next image",
+                                children: g.jsx(PcChevronRight, {
+                                    className: "w-5 h-5"
                                 })
-                            }, d))]
+                            })]
                         })]
                     }), g.jsxs("div", {
-                        className: "w-full md:w-1/3 p-8 flex flex-col justify-center bg-card",
+                        className: "portfolio-modal-info w-full p-6 sm:p-8 flex flex-col justify-center bg-card",
                         children: [g.jsxs("span", {
                             className: "text-secondary font-bold tracking-wider uppercase text-sm mb-2",
                             children: [e.category, " Project"]
