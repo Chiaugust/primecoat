@@ -23085,7 +23085,7 @@ function GV() {
             children: [g.jsxs("div", {
                 className: "absolute inset-0 z-0",
                 children: [g.jsx("img", {
-                    src: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1920&q=80",
+                    src: "images/hero_bg.png",
                     alt: "Professional painting service",
                     className: "w-full h-full object-cover object-center"
                 }), g.jsx("div", {
