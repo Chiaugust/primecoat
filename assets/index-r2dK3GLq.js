@@ -22787,7 +22787,7 @@ function FV() {
                     href: "/",
                     className: "flex items-center gap-2 group",
                     children: [g.jsx("img", {
-                        src: "/images/logo.png",
+                        src: "/images/logo.avif",
                         alt: "PrimeCoat Logo",
                         className: "w-10 h-10 object-contain group-hover:scale-105 transition-transform"
                     }), g.jsxs("span", {
@@ -22899,7 +22899,7 @@ function qV() {
                     children: [g.jsxs("div", {
                         className: "flex items-center gap-2",
                         children: [g.jsx("img", {
-                            src: "/images/logo.png",
+                            src: "/images/logo.avif",
                             alt: "PrimeCoat Logo",
                             className: "w-10 h-10 object-contain"
                         }), g.jsxs("span", {
@@ -23099,7 +23099,7 @@ function GV() {
             children: [g.jsxs("div", {
                 className: "absolute inset-0 z-0",
                 children: [g.jsx("img", {
-                    src: "images/hero_bg.png",
+                    src: "images/hero_bg.avif",
                     alt: "Professional painting service",
                     className: "w-full h-full object-cover object-center"
                 }), g.jsx("div", {
@@ -23336,16 +23336,16 @@ function GV() {
                 }), g.jsx("div", {
                     className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4",
                     children: [{
-                        img: "images/projects/p1_1.jpg",
+                        img: "images/projects/p1_1.avif",
                         title: "Lekki Phase 1 Estate"
                     }, {
-                        img: "images/projects/p2_1.jpg",
+                        img: "images/projects/p2_1.avif",
                         title: "Victoria Island Office"
                     }, {
-                        img: "images/projects/p3_1.png",
+                        img: "images/projects/p3_1.avif",
                         title: "Ikeja Commercial Hub"
                     }, {
-                        img: "images/projects/p4_1.jpg",
+                        img: "images/projects/p4_1.avif",
                         title: "Surulere Residence"
                     }].map((e, t) => g.jsxs(Ut.div, {
                         initial: {
@@ -23454,7 +23454,7 @@ function YV() {
                         },
                         className: "relative rounded-3xl overflow-hidden shadow-2xl",
                         children: [g.jsx("img", {
-                            src: "images/our_team.png",
+                            src: "images/our_team.avif",
                             alt: "PrimeCoat Team",
                             className: "w-full h-full object-cover"
                         }), g.jsx("div", {
@@ -23604,35 +23604,35 @@ const ZV = [{
     id: "interior",
     title: "Interior Painting",
     icon: Z1,
-    image: "images/interior_painting.png",
+    image: "images/interior_painting.avif",
     description: "Transform the atmosphere of your home with our professional interior painting services. We handle everything from color consultation to meticulous preparation and flawless application.",
     benefits: ["Complete furniture & floor protection", "Drywall repair and prep", "Premium low-VOC paints", "Clean lines and sharp edges"]
 }, {
     id: "exterior",
     title: "Exterior Painting",
     icon: qc,
-    image: "images/exterior_painting.png",
+    image: "images/exterior_painting.avif",
     description: "Protect your property from the harsh Lagos weather while boosting its curb appeal. Our exterior painting solutions are designed for durability and lasting beauty.",
     benefits: ["Thorough power washing", "Weather-resistant coatings", "Siding and stucco repair", "Protection against mold & fading"]
 }, {
     id: "residential",
     title: "Residential Painting",
     icon: $1,
-    image: "images/residential_painting.png",
+    image: "images/residential_painting.avif",
     description: "Whether it's a single room or an entire estate, we provide specialized residential painting tailored to homeowners who demand the best for their living spaces.",
     benefits: ["Minimal disruption to daily life", "Dust-free sanding", "Color consultation available", "Respectful, background-checked crews"]
 }, {
     id: "commercial",
     title: "Commercial Painting",
     icon: qc,
-    image: "images/commercial_painting.png",
+    image: "images/commercial_painting.avif",
     description: "Elevate your business image with our commercial painting services. We work efficiently to minimize downtime while delivering a professional look for your workspace.",
     benefits: ["Flexible after-hours scheduling", "High-durability commercial paints", "Strict safety compliance", "Project management coordination"]
 }, {
     id: "surface-prep",
     title: "Surface Preparation & Repairs",
     icon: Y1,
-    image: "images/surface_prep.png",
+    image: "images/surface_prep.avif",
     description: "A great paint job starts with a perfect canvas. We offer comprehensive surface preparation to ensure maximum paint adhesion and a perfectly smooth finish.",
     benefits: ["Plaster and drywall patching", "Sanding and smoothing", "Caulking and sealing", "Stain-blocking primer application"]
 }, {
@@ -23760,26 +23760,26 @@ const XV = [{
     id: 1,
     title: "Lekki Phase 1 Estate",
     category: "Exterior",
-    img: "images/projects/p1_1.jpg",
-    gallery: ["images/projects/p1_2.png", "images/projects/p1_3.png", "images/projects/p1_4.png", "images/projects/p1_5.webp", "images/projects/p1_6.png", "images/projects/p1_7.png"]
+    img: "images/projects/p1_1.avif",
+    gallery: ["images/projects/p1_2.avif", "images/projects/p1_3.avif", "images/projects/p1_4.avif", "images/projects/p1_5.webp", "images/projects/p1_6.avif", "images/projects/p1_7.avif"]
 }, {
     id: 2,
     title: "Victoria Island Office",
     category: "Commercial",
-    img: "images/projects/p2_1.jpg",
-    gallery: ["images/projects/p2_2.png", "images/projects/p2_3.png", "images/projects/p2_4.png", "images/projects/p2_5.png", "images/projects/p2_6.png", "images/projects/p2_7.png"]
+    img: "images/projects/p2_1.avif",
+    gallery: ["images/projects/p2_2.avif", "images/projects/p2_3.avif", "images/projects/p2_4.avif", "images/projects/p2_5.avif", "images/projects/p2_6.avif", "images/projects/p2_7.avif"]
 }, {
     id: 3,
     title: "Ikeja Modern Residence",
     category: "Interior",
-    img: "images/projects/p3_1.png",
-    gallery: ["images/projects/p3_2.png", "images/projects/p3_3.png", "images/projects/p3_4.png", "images/projects/p3_5.png", "images/projects/p3_6.png", "images/projects/p3_7.png"]
+    img: "images/projects/p3_1.avif",
+    gallery: ["images/projects/p3_2.avif", "images/projects/p3_3.avif", "images/projects/p3_4.avif", "images/projects/p3_5.avif", "images/projects/p3_6.avif", "images/projects/p3_7.avif"]
 }, {
     id: 4,
     title: "Surulere Apartment Block",
     category: "Exterior",
-    img: "images/projects/p4_1.jpg",
-    gallery: ["images/projects/p4_2.png", "images/projects/p4_3.png", "images/projects/p4_4.png", "images/projects/p4_5.png", "images/projects/p4_6.png", "images/projects/p4_7.png"]
+    img: "images/projects/p4_1.avif",
+    gallery: ["images/projects/p4_2.avif", "images/projects/p4_3.avif", "images/projects/p4_4.avif", "images/projects/p4_5.avif", "images/projects/p4_6.avif", "images/projects/p4_7.avif"]
 }];
 
 function QV() {
